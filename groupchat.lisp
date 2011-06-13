@@ -49,6 +49,10 @@
 			(cxml:text body))))
 	  (error "No message body")))
 
+;;  Adds participant to a participants list
+(defmethod add-participant ((groupchat groupchat) (participant participant))
+  (setf (participants groupchat) (remove-duplicates (cons participant (participants groupchat)) :test #'equal-participant)))
+
 (defun join (connection resource room-jid desired-nickname)
   "Creates a groupchat object, sends a presence to MUC, returns
 created groupchat object."

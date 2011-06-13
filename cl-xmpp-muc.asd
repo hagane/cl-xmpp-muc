@@ -9,4 +9,5 @@
   :description "XEP-0045 realization for cl-xmpp."
   :depends-on (cl-xmpp cxml)
   :components ((:file "package")
-			   (:file "groupchat" :depends-on ("package"))))
+			   (:file "participant")
+			   (:file "groupchat" :depends-on ("package" "participant"))))
